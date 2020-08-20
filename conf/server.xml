@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Server port="8005" shutdown="SHUTDOWN">
+
+    <Service name="Catalina">
+
+        <Connector port="80" protocol="HTTP/1.1"
+                   connectionTimeout="20000"
+                   redirectPort="8443" />
+        <Engine name="Catalina" defaultHost="localhost">
+
+            <Host name="localhost"  appBase="webapps"
+                  unpackWARs="true" autoDeploy="true"
+                  xmlValidation="false" xmlNamespaceAware="false">
+                <Context path="" docBase="tomcat-maven-docker-template-1.0.war">
+                    <Manager maxActiveSessions="100" maxInactiveInterval="1800" pathname=""/>
+                    <Loader className="org.apache.catalina.loader.WebappLoader" delegate="true"/>
+                </Context>
+            </Host>
+        </Engine>
+    </Service>
+</Server>
